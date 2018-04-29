@@ -1,0 +1,13 @@
+@mixin border-custom($width: 1px,$color: #000000, $style: solid) {
+  @if $width {
+    border-width: $width;
+  }
+
+  @if $color {
+    border-color: $color;
+  }
+
+  @if $style {
+    border-style: $style;
+  }
+}

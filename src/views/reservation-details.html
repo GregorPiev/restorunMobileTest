@@ -1,0 +1,163 @@
+<header>
+  <a ui-sref="main.reservations-list" class="logo"><img src="../images/logo.png"></a>
+  <h1 ng-hide="isNewReservation">הזמנה {{reservation.id}}</h1>
+  <h1 ng-show="isNewReservation">יצירת הזמנה</h1>
+  <a ng-click="onBackBtnClick()" class="back_btn"><i class="fa fa-angle-left"></i></a>
+</header>
+<div class="container reservation_details" ng-form="reservationForm">
+  <div class="info_strip">
+    <div>
+      <span class="title">בתאריך <a ng-show="isNewReservation" ng-click="toggleTimepicker($event)"> - לחץ לשינוי</a></span>
+      <span ng-click="isNewReservation && toggleDatepicker($event)" ng-bind="reservation.reservationDateTime | MomentFilter: 'DD/MM/YYYY' "></span>
+      <input type="date" name="reservationDateTime" class="almostInvisible" ng-min="minDate" ng-required="true" ng-model="reservation.reservationDateTime" ng-change="dateChangeHandler()">
+      <div ng-messages="reservationForm.reservationDateTime.$error" ng-show="reservationForm.reservationDateTime.$touched || errors.visible">
+        <div ng-message="min">תאריך ההזמנה לא יכול להיות לפני היום</div>
+        <div ng-message="required">שדה חובה</div>
+      </div>
+    </div>
+    <div>
+      <span class="title">בשעה <a ng-show="isNewReservation || isEditing" ng-click="toggleTimepicker($event)"> - לחץ לשינוי</a></span>
+      <span ng-click="isNewReservation && toggleTimepicker($event)" ng-bind="reservation.reservationDateTime | MomentFilter: 'HH:mm' "></span>
+      <input type="time" class="almostInvisible" ng-model="reservation.reservationDateTime">
+    </div>
+  </div>
+  <ul class="list_section">
+    <li class="name">
+      <div class="label"><i class="icon-person"></i>שם</div>
+      <div ng-show="reservation.customer">
+        <span ng-bind="reservation.customer.fullName"></span>
+      </div>
+      <button ng-show="reservation.customer" class="left_line_arrow" ui-sref="main.reservation.customer-details({CustomerId: reservation.customer.customerID})"></button>
+      <a ng-show="reservation.customer" class="call_btn" href="tel:{{reservation.customer.phoneNumber}}"><i class="icon-phone"></i></a>
+      <div ng-hide="reservation.customer">
+        <a ui-sref="main.reservation.customer-search">בחר לקוח</a>
+        <div class="validation" ng-show="!reservation.customer && errors.visible">
+          חובה לבחור לקוח
+        </div>
+      </div>
+      <button ng-hide="reservation.customer" class="add_client" ui-sref="main.reservation.customer-new"></button>
+    </li>
+    <li>
+      <div class="label"><i class="icon-group"></i>מספר סועדים</div>
+      <div>
+        <span ng-hide="isNewReservation || isEditing" ng-bind="reservation.reservationPartySize"></span>
+        <div ng-show="isNewReservation || isEditing" class="input_container">
+          <input type="number" inputmode="numeric" name="reservationPartySize" min=1 ng-min="1" ng-required="true" ng-model="reservation.reservationPartySize"
+                 placeholder="- לחץ לשינויי">
+          <div ng-messages="reservationForm.reservationPartySize.$error" ng-show="reservationForm.reservationPartySize.$touched || errors.visible">
+            <span class="validation" ng-message="min">לא יכול להיות קטן מ1</span>
+            <span class="validation" ng-message="required">שדה חובה</span>
+            <span class="validation" ng-message="number">חייב להיות מספר</span>
+          </div>
+        </div>
+      </div>
+    </li>
+    <!--         <li>
+        <div class="label"><i class="icon-chef"></i>מטבח</div>
+        <div>
+            <span ng-hide="isNewReservation" ng-bind="reservation.kitchenNumber"></span>
+            <div ng-show="isNewReservation" class="input_container">
+                <span class="validation">שדה חובה</span>
+                <input type="number" ng-model="reservation.kitchenNumber" placeholder="- לחץ לשינויי">
+            </div>
+        </div>
+    </li> -->
+    <!--         <li>
+        <div class="label"><i class="icon-Shape155"></i>משך</div>
+        <div>
+            <span ng-hide="isNewReservation" ng-bind="reservation.reservationDuration | MomentFilter: 'HH:mm' "></span>
+        </div>
+        <div ng-show="isNewReservation" class="select_container small">
+            <i class="fa fa-caret-down"></i>
+            <select ng-model="reservation.reservationDuration" ng-options="d.duration as d.name for d in durations | orderBy:'duration'">
+                <option value="" selected="selected">בחירת משך</option>
+            </select>
+        </div>
+    </li> -->
+    <li>
+      <div class="label"><i class="icon-smokers"></i>מעשנים</div>
+      <div ng-hide="isNewReservation || isEditing">
+        <span ng-bind="reservation.smokingPreferences === 1 ? 'כן' : reservation.smokingPreferences === 0 ? 'לא' : 'לא ידוע' ">
+        </span>
+      </div>
+      <div ng-show="isNewReservation || isEditing" class="multi_btn">
+        <input id="rdIsSmoking_Yes" type="radio" name="rdIsSmoking" ng-model="reservation.smokingPreferences" ng-value="1" ng-checked="reservation.smokingPreferences === 1">
+        <label class="right" for="rdIsSmoking_Yes">כן</label>
+        <input id="rdIsSmoking_Unknown" type="radio" name="rdIsSmoking" ng-model="reservation.smokingPreferences" ng-value="2" ng-checked="reservation.smokingPreferences === 2">
+        <label for="rdIsSmoking_Unknown">לא משנה</label>
+        <input id="rdIsSmoking_No" type="radio" name="rdIsSmoking" ng-model="reservation.smokingPreferences" ng-value="0" ng-checked="reservation.smokingPreferences === 0">
+        <label class="left" for="rdIsSmoking_No">לא</label>
+      </div>
+    </li>
+    <li>
+      <div class="label"><i class="icon-area"></i>איזור</div>
+      <div>
+        <span ng-hide="isNewReservation || isEditing" ng-bind="reservation.logicalArea.name"></span>
+      </div>
+      <div ng-show="isNewReservation || isEditing" class="select_container small">
+        <i class="fa fa-caret-down"></i>
+        <select ng-model="selectedLogicalArea.id" name="logicalArea" ng-required="true"
+                ng-options="logicalArea.id as logicalArea.name for logicalArea in logicalAreas">
+          <option value="">בחירת אזור מסעדה</option>
+        </select>
+        <!--<select ng-model="reservation.logicalArea" name="logicalArea" ng-required="true" ng-options="rla as rla.name for rla in logicalAreas | orderBy:'name'">
+            <option value="" selected="selected">בחירת אזור מסעדה</option>
+        </select>-->
+        <div ng-messages="reservationForm.logicalArea.$error" ng-show="reservationForm.logicalArea.$touched || errors.visible">
+          <span class="validation" ng-message="required">חובה לבחור איזור</span>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div class="label"><i class="icon-area"></i>שולחן</div>
+      <div>
+        <!--<span ng-hide="isNewReservation || isEditing" ng-bind="reservation.table[0].name"></span>-->
+        <div ng-hide="isNewReservation || isEditing">
+          <span ng-repeat="table in reservation.table">
+            <span ng-bind="formatTableName(table.name)"></span>
+            <span ng-if="!$last">, </span>
+          </span>
+        </div>
+      </div>
+      <div ng-show="isNewReservation || isEditing" class="select_container small">
+        <i class="fa fa-caret-down"></i>
+        <!-- <select multiple ng-model="reservation.table" name="tables" ng-required="true" ng-options="rla as rla.name for rla in tables | filter: { logicalAreaID : reservation.logicalArea.id} | orderBy:'name'">
+            <option value="" selected="selected">בחירת שולחן במסעדה</option>
+        </select>-->
+
+        <select multiple ng-model="reservation.table" name="tables" ng-required="true" ng-options="rla.name for rla in tables | filter: { logicalAreaID : reservation.logicalArea.id} | orderBy:'name'">
+          <option value="">בחירת שולחן במסעדה</option>
+        </select>
+
+        <div ng-messages="reservationForm.tables.$error" ng-show="reservationForm.tables.$touched || errors.visible">
+          <span class="validation" ng-message="required">חובה לבחור שולחן</span>
+        </div>
+      </div>
+    </li>
+  </ul>
+  <!--<div style="direction: ltr;">
+      <pre>{{selectedLogicalArea | json}}</pre>
+  </div>
+  <div style="direction: ltr;">
+      <pre>{{tables | json}}</pre>
+  </div>-->
+  <!--<div style="direction: ltr;">
+      <pre>{{reservation | json}}</pre>
+  </div>-->
+  <div class="remark_section" ng-click="continueToNextStep(reservationForm)">
+    <div class="title">פרטי הזמנה נוספים <i class="icon-message"></i></div>
+    <button class="left_black_arrow"></button>
+  </div>
+</div>
+<div class="footer" ng-if="isNewReservation && !disableButtons">
+  <a ng-click="makeReservation(reservationForm)" class="btn full_width">עדכן</a>
+</div>
+<div class="footer" ng-show="isEditing && !disableButtons && !isNewReservation" version-check>
+  <a ng-click="updateReservation(reservationForm)" class="btn full_width">שמירת שינויים</a>
+</div>
+<div class="footer" ng-show="!isEditing && !disableButtons && isEditable && !isNewReservation" version-check>
+  <a ng-click="editReservation()" class="btn full_width">עריכת הזמנה</a>
+</div>
+<div class="footer" ng-if="disableButtons">
+  <a class="btn full_width">מייצרים הזמנה... אנא המתן</a>
+</div>

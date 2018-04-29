@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<meta charset="UTF-8">
+		<title>Sass Projact</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../css/stylesheets/style.css" type="text/css" />
+		<link rel="stylesheet" href="../css/fonts/icomoon/style.css" type="text/css" />
+		<link rel="stylesheet" href="../css/fonts/almoni/stylesheet.css" type="text/css" />
+	</head>
+	<body>
+		<!-- Header	 -->
+		<header>
+			<a href="../mockIndex.html" class="logo"><img src="../images/logo.png"></a>
+			<h1>הוספת לקוח חדש</h1>
+			<a  href="new-reservation.html" class="back_btn"><i class="fa fa-angle-left"></i></a>
+		</header>
+		<!-- Container	 -->
+		<div class="container">
+			<ul class="list_section">
+				
+				<li class="group_item">
+					<div class="label"><i class="icon-group"></i>שם פרטי</div>
+					<div class="input_container">
+						<input type="text" placeholder="הזן שם פרטי">
+					</div>
+				</li>
+				<li  class="group_item">
+					<div class="label"><i class="icon-person"></i>שם משפחה</div>
+					<div class="input_container">
+						<input type="text" placeholder="הזן שם משפחה">
+					</div>
+				</li>
+				<li>
+					<div class="label"><i class="icon-mobile"></i>טלפון נייד</div>
+					<div class="input_container">
+						<input type="number" placeholder="הזן טלפון נייד">
+					</div>
+				</li>
+				<li>
+					<div class="label"><i class="icon-star"></i>סוג לקוח</div>
+					<div class="select_container small">
+						<i class="fa fa-caret-down"></i>
+						<select name="" id="">
+							<option value="" disabled="disabled" selected="selected">בנק הערות</option>
+							<option value="">בנק הערות</option>
+							<option value="">בנק הערות</option>
+							<option value="">בנק הערות</option>
+						</select>
+					</div>
+				</li>
+				<li class="action_item">
+					<div class="label club_member"><i class="icon-card"></i>חבר מועדון</div>
+					<div>
+						<input id="toggle" class="switch_toggle" type="checkbox">
+						<label for="toggle"></label>
+					</div>
+				</li>
+			</ul>
+			<div class="remark_section">
+				<div class="title">הערות ללקוח <i class="icon-message"></i></div>
+				<textarea name="" id="" cols="30" rows="2" placeholder="הזן הערה ללקוח"></textarea>
+			</div>
+			<div class="footer">
+				<button class="btn small error"><i class="icon-close"></i>ביטול</button>
+				<button class="btn small green">צור ובחר</button>
+			</div>
+		</div>
+	</body>
+</html>

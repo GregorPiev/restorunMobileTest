@@ -1,0 +1,52 @@
+// ******************************************************************************************************************************
+// General Colors
+// ******************************************************************************************************************************
+
+$Green: #3ab54a;
+$Blue: #057dff;
+$Custommargtop: "131px";
+
+// ******************************************************************************************************************************
+// Global Partials
+// *****************************************************************************************************************************
+@import "compass/css3";
+
+@import "partials/globals-mixin/background-image.scss";
+@import "partials/globals-mixin/inline-block.scss";
+@import "partials/globals-mixin/vertical-align.scss";
+@import "partials/globals-mixin/horizontal-align.scss";
+@import "partials/globals-mixin/respond.scss";
+@import "partials/globals-mixin/placeholder.scss";
+@import "partials/globals-mixin/position.scss";
+@import "partials/globals-mixin/hide-text.scss";
+@import "partials/globals-mixin/ellipsis.scss";
+@import "partials/globals-mixin/triangle.scss";
+@import "partials/globals-mixin/margin-dinamy.scss";
+@import "partials/globals-mixin/border-custom.scss";
+@import "partials/globals-mixin/padding-custom.scss";
+
+
+// ******************************************************************************************************************************
+// Site Specific Partials
+// *****************************************************************************************************************************
+@import "partials/global-elements/buttons.scss";
+@import "partials/global-elements/checkbox-radio.scss";
+@import "partials/global-elements/tooltip.scss";
+@import "partials/global-elements/select.scss";
+@import "partials/global-elements/toggle-btn.scss";
+
+// ******************************************************************************************************************************
+// Abstract Classes
+// *****************************************************************************************************************************
+%center_element {
+  position: relative;
+  vertical-align: middle;
+  height: 100%;
+
+  &:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+  }
+}

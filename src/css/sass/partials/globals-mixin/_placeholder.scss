@@ -1,0 +1,15 @@
+// # ------------------- SNIP -------------------
+// input { 
+// 	@include placeholder {
+// 	    font-family: $base-font-family;
+// 	    color: red;
+// 	}
+// }
+// # ------------------- SNIP -------------------
+
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}  
+}

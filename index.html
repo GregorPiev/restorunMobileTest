@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="he" class="no-js" dir="rtl">
+
+<head>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Restorun Queues</title>
+    <meta name="description" content="Restorun">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">    
+    <link rel="stylesheet" href="css/stylesheets/style.css" type="text/css" />
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="css/stylesheets/vendor/sweetalert.css" type="text/css" />
+    <link rel="stylesheet" href="css/stylesheets/vendor/loading-bar.css" type="text/css" />
+    <link rel="stylesheet" href="css/fonts/icomoon/style.css" type="text/css" />
+    <link rel="stylesheet" href="css/fonts/almoni/stylesheet.css" type="text/css" />
+     
+</head>
+
+<body data-ng-app="restorunApp">
+    <!--TEST _ OUTER -->
+    <div data-ui-view></div>
+    <script src="js/build/app.js"></script>
+    <script src="js/build/templates.js"></script>
+    <div class="modal" id="modal-one" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-body">
+                <div class="title">בעיה ביצירת הזמנה</div>
+                <p>
+                    לא ניתן לבצע את ההזמנה בשעה שנבחרה ניתן לבצע הזמנה לשעה
+                    <br> 20:30 (<a href="">שינוי זמן</a>)
+                </p>
+            </div>
+            <div class="modal-footer">
+                <a href="#close" class="btn small error"><i class="icon-close"></i>ביטול הזמנה</a>
+                <a href="#close" class="btn small green">אישור</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

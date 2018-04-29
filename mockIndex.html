@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<meta charset="UTF-8">
+		<title>Sass Projact</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/stylesheets/style.css" type="text/css" />
+		<link rel="stylesheet" href="css/fonts/icomoon/style.css" type="text/css" />
+		<link rel="stylesheet" href="css/fonts/almoni/stylesheet.css" type="text/css" />
+	</head>
+	<body>
+		<!--
+			<div class="mobile_navigation">
+				<input id="menu" type="checkbox">
+				<label for="menu"><i class="icon-pluse"></i></label>
+				<div class="nav_block">
+							<ul>
+									<li class="active"><a href="index.html"><i class="icon"></i>ניהול הזמנות</a></li>
+									<li> <a href="mockViews/new-reservation.html"><i class="icon"></i>יצירת הזמנה</a></li>
+									<li> <a href="mockViews/reservation-details.html"><i class="icon"></i>פרטי הזמנה 4573</a></li>
+									<li> <a href="mockViews/more-reservation-details.html"><i class="icon"></i>פרטי הזמנה נוספים</a></li>
+									<li> <a href="mockViews/adding-new-customer.html"><i class="icon"></i>הוספת לקוח חדש</a></li>
+									<li> <a href="#"><i class="icon"></i>חיפוש לקוח</a></li>
+									<li> <a href="#"><i class="icon"></i>פרטי לקוח</a></li>
+							</ul>
+				</div>
+			</div>
+		-->
+		<header>
+			<a href="index.html" class="logo"><img src="images/logo.png"></a>
+			<a class="more_btn" href="mockViews/new-reservation.html"><i class="icon-pluse"></i></a>
+			<h1>ניהול הזמנות</h1>
+			<div class="actions_strip">
+				<div class="date">
+					<i class="icon-calendar"></i>
+					<span>היום, 28/10/2015</span>
+				</div>
+				<ul class="filters">
+					<li>
+						<div class="tooltip graph_tooltip">
+							<input id="graph" type="checkbox">
+							<label for="graph"><i class="icon-graph"></i></label>
+							<div class="drop">
+								
+								<div>
+									<!-- <div class="drop_title">סינון הזמנות</div> -->
+									<button class="close_btn"><i class="icon-close"></i></button>
+									<div class="content">
+									</div>
+								</div>
+								
+								
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tooltip search_tooltip">
+							<input id="search" type="checkbox">
+							<label for="search"><i class="icon-search"></i></label>
+							<div class="drop">
+								<div>
+									<span class="triangle"></span>
+									<input type="text" placeholder="חפש...">
+									<button class="close_btn"><i class="icon-close"></i></button>
+								</div>
+							</div>
+						</div>
+					</li>
+					<li>
+						<div class="tooltip status_tooltip">
+							<input id="status" type="checkbox">
+							<label for="status"><i class="icon-status"></i></label>
+							<div class="drop">
+								<div>
+									<div class="drop_title">סינון הזמנות</div>
+									<button class="close_btn"><i class="icon-close"></i></button>
+									<div class="content">
+										<div class="select_container">
+											<i class="fa fa-caret-down"></i>
+											<select name="" id="">
+												<option value="" disabled="disabled" selected="selected">בחירת סטטוס</option>
+												<option value="">מוזמן</option>
+												<option value="">מוזמן</option>
+											</select>
+										</div>
+										<div class="select_container">
+											<i class="fa fa-caret-down"></i>
+											<select name="" id="">
+												<option value="" disabled="disabled" selected="selected">בחירת אזור מסעדה</option>
+												<option value="">צפון</option>
+												<option value="">מרכז</option>
+												<option value="">דרום</option>
+											</select>
+										</div>
+										<button class="btn full_width">סינון</button>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div class="days_strip">
+				<span>בוקר</span>
+				<span>צהריים</span>
+				<span class="selected">ערב</span>
+				<span>לילה</span>
+			</div>
+		</header>
+		<div class="container">
+			<div class="invitation_list">
+				<ul>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">רונית רפאלוביץ</div>
+							<div class="status">אשראי</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">רון ציון</div>
+							<div class="status">מוזמן</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">אוריאך יהונותן</div>
+							<div class="status">אשראי</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">יצחק ישראליישראלי</div>
+							<div class="status">מוזמן</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">ישראל ישראלי</div>
+							<div class="status">מוזמן</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">ישראל ישראלי</div>
+							<div class="status">אשראי</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">ישראל ישראלי</div>
+							<div class="status">אשראי</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">ישראל ישראלי</div>
+							<div class="status">מוזמן</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">ישראל ישראלי</div>
+							<div class="status">מוזמן</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">ישראל ישראלי</div>
+							<div class="status">מוזמן</div>
+						</div>
+					</li>
+					<li>
+						<a href="tel:555-555-5555"><i class="icon-phone"></i></a>
+						<div onclick="location.href='mockViews/reservation-details.html'">
+							<div class="time">17:15</div>
+							<div class="name">ישראל ישראלי</div>
+							<div class="status">מוזמן</div>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,130 @@
+.new_reservation, .reservation_details {
+	.label ~ .select_container   {
+		select {
+			text-indent: 0;
+		}
+	}
+}
+
+.reservation_details {
+  .remark_section {
+    padding: 0 0 3px 0;
+  }
+
+  .list_section {
+    li {
+      > div {
+        .down_black_arrow {
+          @include position(relative, 0 15px null null);
+        }
+      }
+
+      #tableOption {
+        option.common-title {
+          background-color: #fff;
+        }
+
+        optgroup {
+          display: flex;
+          flex-direction: row;
+          position: relative;
+          justify-content: space-between;
+          width: 89%;
+
+          option {
+            margin-left: 60px;
+          }
+
+          option::before {
+            font-size: 24px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: left;
+            width: 40px;
+            margin-left: 10px;
+            font-family: 'icomoon' !important;
+            content: url("../../images/user_group.png");
+          }
+        }
+      }
+
+      &.name {
+        .label {
+          width: 45%;
+        }
+
+        > div {
+          width: 33%;
+        }
+
+        .left_line_arrow {
+          position: relative;
+          float: left;
+          width: 10%;
+          border: 0;
+          left: 0;
+          margin: 5px 0 4px 0;
+
+          &:before {
+            left: 41%;
+          }
+
+          &:after {
+            left: auto;
+            right: 0;
+          }
+        }
+
+        .call_btn {
+          float: left;
+          margin: 24px 0 0 3px;
+          width: 9%;
+          padding: 0;
+          text-align: right;
+        }
+      }
+
+      .validation {
+        position: absolute;
+        left: 10px;
+        font-size: 16px;
+        color: crimson;
+        @include transition(all .4s);
+        opacity: 1;
+        top: 20px;
+      }
+    }
+  }
+}
+
+.info_strip {
+	@include inline-block(100%, 105px, auto, auto, auto);
+	padding: 12px 6vw;
+	display: block;
+	background: #E9EAED;
+	> div {
+		@include inline-block(50%, 76px, auto, auto, auto);
+		padding: 13px 28px 0 0;
+		float: right;
+		&:first-child { 
+			border-left: 1px solid #2e2d3b; 
+			padding: 13px 0 0 0;
+		}
+		span {
+			font: 32px/40px 'almoni_tzar_aaalight', Arial, sans-serif;
+			display: block;
+			&.title {
+    			font: 22px 'almoni_tzar_aaaregular', Arial, sans-serif;
+    			color: #727272;
+    			a {
+	    			color: #727272;
+    				font: 16px 'almoni_tzar_aaaregular', Arial, sans-serif;
+					margin: 0 5px 0 0;
+
+    			}
+
+			}
+		}
+
+	}
+}

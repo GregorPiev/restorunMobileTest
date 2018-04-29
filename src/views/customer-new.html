@@ -1,0 +1,67 @@
+<header>
+    <a ui-sref="main.reservations-list" class="logo"><img src="../images/logo.png"></a>
+    <h1>הוספת לקוח חדש</h1>
+    <a ng-click="back()" class="back_btn"><i class="fa fa-angle-left"></i></a>
+</header>
+<!-- Container   -->
+<div class="container" ng-form="customerForm">
+    <ul class="list_section">
+        <li class="group_item">
+            <div class="label"><i class="icon-group"></i>שם פרטי</div>
+            <div class="input_container">
+                <input type="text" name="firstName" ng-required="true" ng-model="customer.firstName" placeholder="הזן שם פרטי">
+                <div ng-messages="customerForm.firstName.$error" ng-show="customerForm.firstName.$touched || errors.visible">
+                    <span class="validation" ng-message="required">שדה חובה</span>
+                </div>
+            </div>
+        </li>
+        <li class="group_item">
+            <div class="label"><i class="icon-person"></i>שם משפחה</div>
+            <div class="input_container">
+                <input type="text" ng-model="customer.lastName" ng-required="true" name="lastName" placeholder="הזן שם משפחה">
+                <div ng-messages="customerForm.lastName.$error" ng-show="customerForm.lastName.$touched || errors.visible">
+                    <span class="validation" ng-message="required">שדה חובה</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="label"><i class="icon-mobile"></i>טלפון נייד</div>
+            <div class="input_container">
+                <input type="tel" ng-model="customer.phoneNumber" ng-required="true" name="phoneNumber" placeholder="הזן טלפון נייד">
+                <div ng-messages="customerForm.phoneNumber.$error" ng-show="customerForm.phoneNumber.$touched || errors.visible">
+                    <span class="validation" ng-message="required">שדה חובה</span>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="label"><i class="icon-mobile"></i>טלפון נוסף</div>
+            <div class="input_container">
+                <input type="tel" ng-model="customer.phoneNumber2" placeholder="הזן טלפון נוסף">
+            </div>
+        </li>
+        <li class="disabled-parent">
+            <div class="label disabled-control"><i class="icon-star"></i>סוג לקוח</div>
+            <div class="select_container small disabled-control" >
+                <i class="fa fa-caret-down"></i>
+                <select disabled ng-model="searchParams.customerTypes" ng-options="ct.id as ct.name for ct in customerTypes | orderBy:'name'">
+                    <option value="" selected="selected">בחר סוג לקוח</option>
+                </select>
+            </div>
+        </li>
+        <li class="action_item">
+            <div class="label club_member"><i class="icon-card"></i>חבר מועדון</div>
+            <div>
+                <input id="toggle" ng-model="customer.isClubMember" class="switch_toggle" type="checkbox">
+                <label for="toggle"></label>
+            </div>
+        </li>
+    </ul>
+    <div class="remark_section">
+        <div class="title">הערות ללקוח <i class="icon-message"></i></div>
+        <textarea ng-model="customer.remark" cols="30" rows="2" placeholder="הזן הערה ללקוח"></textarea>
+    </div>
+    <div class="footer">
+        <button class="btn small error" ng-click="back()"><i class="icon-close"></i>ביטול</button>
+        <button class="btn small green" ng-click="addCustomer(customerForm)">צור ובחר</button>
+    </div>
+</div>

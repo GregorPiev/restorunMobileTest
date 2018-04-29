@@ -1,0 +1,17 @@
+@mixin padding-custom($top: auto,$right: auto,$bottom: auto,$left: auto) {
+  @if $top and $top!=auto {
+    padding-top: $top;
+  }
+
+  @if $right and $right!=auto {
+    padding-right: $right;
+  }
+
+  @if $bottom and $bottom!=auto {
+    padding-bottom: $bottom;
+  }
+
+  @if $left and $left!=auto {
+    padding-left: $left;
+  }
+}

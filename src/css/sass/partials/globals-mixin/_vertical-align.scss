@@ -1,0 +1,33 @@
+// # ------------------- SNIP -------------------
+// snippet vertical-align
+// @include vertical-align;
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin vertical-align() {
+  &:before {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -0.25em;
+  }
+
+  & > * {
+		vertical-align: middle;
+		display: inline-block;
+  }
+}
+
+@mixin translate($x: 0, $y: 50%){
+  -ms-transform: translate($x, $y);
+  -moz-transform: translate($x, $y);
+  -webkit-transform: translate($x, $y);
+  transform: translate($x, $y);
+}
+
+@mixin better-vertical-align($position: absolute){
+  display: inline-block;
+  position: $position;
+  top: 50%;
+  @include translate(0, -50%);
+}

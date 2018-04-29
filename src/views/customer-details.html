@@ -1,0 +1,66 @@
+<header>
+    <a ui-sref="main.reservations-list" class="logo"><img src="../images/logo.png"></a>
+    <h1>{{customer.customer.fullName}}</h1>
+    <a ng-click="back()" class="back_btn"><i class="fa fa-angle-left"></i></a>
+</header>
+<!-- Container   -->
+<div class="container customer_details">
+    <div class="info_strip">
+        <i class="icon-Shape403"></i>
+        <h2>{{customer.customer.phoneNumber}}</h2>
+        <a class="call_btn" href="tel:{{customer.customer.phoneNumber}}"><i class="icon-phone"></i></a>
+    </div>
+    <div class="info_strip" ng-show="customer.customer.phoneNumber2.length > 1">
+        <i class="icon-Shape403"></i>
+        <h2>{{customer.customer.phoneNumber2}}</h2>
+        <a class="call_btn" href="tel:{{customer.customer.phoneNumber2}}"><i class="icon-phone"></i></a>
+    </div>
+    <ul class="list_section">
+        <li>
+            <div class="label">הגעות<i class="icon-like"></i></div>
+            <div>
+                <span>{{customer.customer.arrivals}}</span>
+            </div>
+        </li>
+        <li>
+            <div class="label">ביטולים<i class="icon-un_like"></i></div>
+            <div>
+                <span>{{customer.customer.cancellations}}</span>
+            </div>
+        </li>
+        <li>
+            <div class="label">אי הופעות<i class="icon-hide"></i></div>
+            <div>
+                <span>{{customer.customer.noShows}}</span>
+            </div>
+        </li>
+        <li>
+            <div class="label">סך חשבונות<i class="icon-Forma1"></i></div>
+            <div>
+                <span><small class="money_sign">₪</small>{{customer.customer.spentTotal}}</span>
+            </div>
+        </li>
+        <li>
+            <div class="label">ממוצע לסועד<i class="icon-restaurant"></i></div>
+            <div>
+                <span><small class="money_sign">₪</small>{{customer.customer.averageForGuest}}</span>
+            </div>
+        </li>
+        <li>
+            <div class="label">הערות ללקוח<i class="icon-message"></i></div>
+            <div>
+                <span>{{customer.customer.comments}}</span>
+            </div>
+        </li>
+    </ul>
+    <ul class="table_section">
+        <li ng-repeat="history in customer.reservationsHistory">
+            <div class="date">{{history.reservationDateTime | MomentFilter: 'DD-MM-YYYY'}}</div>
+            <div class="time_and_tables">
+                <span>{{history.reservationDateTime | MomentFilter: 'HH:mm'}}<i class="icon-time"></i></span>
+                <span>{{history.tableNumbers | TestNumberTables: history.tableNumbers}}<i class="icon-table"></i></span>
+            </div>
+            <div class="total"><small class="money_sign">₪</small>{{history.moneySpent}}</div>
+        </li>
+    </ul>
+</div>

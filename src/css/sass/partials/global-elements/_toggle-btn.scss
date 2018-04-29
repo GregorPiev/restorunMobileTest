@@ -1,0 +1,40 @@
+
+// <input id="toggle" class="switch_toggle" type="checkbox">
+// <label for="togglE"></label> 
+
+input.switch_toggle {
+    & + label {
+        padding: 2px;
+        width: 50px;
+        height: 27px;
+        background-color: #48E776;
+        border-radius: 60px;
+        vertical-align: top;
+        margin: 18px 0 0 7px;
+        &:before, &:after {
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            bottom: 1px;
+            content: "";
+        }
+        &:before {
+            opacity: 0;
+        }
+        &:after {
+            width: 25px;
+            background-color: #fff;
+            border-radius: 100%;
+            transition: margin 0.4s;
+        }
+    }
+    &:not(:checked) {
+        & + label {
+            background: #DDDEE1;
+            &:after {
+                margin-left: 23px;
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+@mixin margin-dinamy($top: auto,$right: auto,$bottom: auto,$left: auto) {
+  @if $top and $top!= auto {
+    margin-top: $top !important;
+  }
+
+  @if $right and $right!=auto {
+    margin-right: $right;
+  }
+
+  @if $left and $left!=auto {
+    margin-left: $left;
+  }
+
+  @if $bottom and $bottom!=auto {
+    margin-bottom: $bottom;
+  }
+}

@@ -1,0 +1,119 @@
+.customer_details {
+	.info_strip {
+		position: relative;
+		padding: 3px 0 0;
+		display: block;
+		background: #fff;
+		height: auto;
+		h2 {
+		    font: 32px/51px 'almoni_tzar_aaalight', Arial, sans-serif;
+		    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+		    border-bottom: 1px solid #E9EAED;
+		    text-align: center;
+		}
+	    .icon-Shape403 {
+	        @include position(absolute, 17px 18px null null);
+	        color: #FFCC00;
+	        font-size: 23px
+	    }
+		> a {
+		        @include inline-block(40px, 40px, center, auto, auto);
+		        @include position(absolute, 10px null null 7px);
+		        i { @include position(absolute, 10px 10px null null); }
+		}
+	}
+	.list_section {
+		padding: 14px 0;
+		background: #fff;
+		li {
+			background: none;
+			border: 0;
+			&:last-child div:last-child{
+				line-height: 22px;
+				padding: 9px 10px 0 0;
+			}
+			 > div {
+			 	font: 21px/41px 'almoni_tzar_aaaregular', Arial, sans-serif;
+			 	width: 53%;
+			 	text-overflow: initial;
+			 	white-space: initial;
+			 	overflow: visible;
+			 	padding: 0 10px 0 0;
+			 	&.label {
+			 		font: 21px/41px 'almoni_tzar_aaaregular', Arial, sans-serif;
+			 		padding: 0 58px 0 5px;
+			 		width: 47%;
+			 	}
+			 	i { 
+			 		font-size: 17px;
+			 		top: calc(50% - 11px); 
+			 		width: 60px;
+			 		&.icon-hide {font-size: 20px; top: calc(50% - 13px);}
+			 		&.icon-Forma1 {font-size: 20px; top: calc(50% - 12px);}
+			 		&.icon-restaurant {font-size: 18px;}
+			 		&.icon-message {font-size: 22px; top: calc(50% - 13px);}
+			 	}
+			}
+		}
+	}	
+}
+
+.table_section {
+  @include inline-block(100%, auto, center, auto, auto);
+  display: table;
+  border-top: 1px solid #e1e2e5;
+
+  li {
+    @include inline-block(100%, auto, center, auto, auto);
+    border-bottom: 1px solid #e1e2e5;
+    background: #fff;
+    float: right;
+
+    > div {
+      @include inline-block(27%, auto, center, auto, auto);
+      font: 21px/37px 'almoni_tzar_aaaregular', Arial, sans-serif;
+      float: right;
+      margin: 5px 0 1px;
+      padding: 1px 1% 0;
+
+      &.date {
+        color: $Green;
+      }
+
+      &.time_and_tables {
+        width: 46%;
+        border-left: 1px solid #e1e2e5;
+        border-right: 1px solid #e1e2e5;
+
+        span {
+          color: #939393;
+          position: relative;
+          padding: 0 26px 0 0;
+          display: inline-block;
+          min-width: 53px;
+
+          &:first-child {
+            margin: 0 0 0 12%;
+          }
+
+          i {
+            @include position(absolute, 10px 0 null null);
+            font-size: 17px;
+            color: #b8b8b8;
+
+            &.icon-table {
+              position: relative;
+              top: 0;
+              margin-left: 10px;
+            }
+          }
+        }
+      }
+
+      &.total {
+        // text-align: left;
+        // padding: 0 0 0 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+
+.invitation_list {
+	//margin: 80px 0 0 0;
+	margin: 32px 0 0 0;
+    width: 100%;
+
+    h1 {
+        padding: 20px;
+        position: relative;
+        text-align: center;
+
+    }
+	ul {
+		padding: 7px 0 0 0;
+		li {
+			@include inline-block(calc(100% - 28px), 54px, right, top, auto);
+			border: 1px solid #e1e2e5;
+			background: #fff;
+			font-size: 20px;
+			margin: 5px 13px 0;
+			&:hover, &:active, &:focus {
+				background: #DCDCE3;
+			}
+			div  {
+				height: 53px;
+				div {
+					padding: 19px 0 0 0;
+					font-size: 26px;
+					cursor: pointer;
+					float: right;
+					@include ellipsis(60px);
+					&.name {
+						@include inline-block(100%, auto, auto, top, auto);
+	    				padding: 19px 16px 0 4px;
+						@include ellipsis(calc(100% - 220px));
+					}
+					&.time {
+						@include inline-block(71px, 33px, left, top, auto);
+						@include ellipsis(49%);
+						font: 24px/14px 'almoni_tzar_aaaregular', Arial, sans-serif;
+						background: $Blue;
+						color: #fff;
+						margin: 10px -14px 0 0;
+						padding: 10px 12px 0 9px;
+					}
+					&.status {
+						float: left;
+						padding-left: 10px;
+					}
+				}
+			}
+			a {
+				@include inline-block(50px, 54px, center, top, 59px);
+				font-size: 21px;
+				float: left;
+				@include box-shadow(inset -15px 1px 20px -20px rgba(0, 0, 0, 0.25));
+
+				&.call_btn {
+					color: #3ab54a;
+				}
+			
+				&.cancel_btn {
+					color: #a94442;
+				}
+
+				&.disabled {
+					color: #ccc;
+				}
+			}
+		}
+	}
+
+  .filter_on {
+    padding-top: 16em;
+  }
+}

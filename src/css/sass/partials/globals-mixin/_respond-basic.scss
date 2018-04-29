@@ -1,0 +1,9 @@
+// # ------------------- SNIP -------------------
+// snippet respond
+// @include respond (${1:resolution});
+// endsnippet
+// # ------------------- SNAP -------------------
+
+@mixin respond ($resolution) {
+  @media only screen and (max-width: $resolution) { @content; }
+}

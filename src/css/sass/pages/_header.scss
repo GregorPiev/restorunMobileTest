@@ -1,0 +1,179 @@
+
+header {
+  /*@include inline-block(100%, auto, auto, auto, auto);*/
+  display: block;
+  @include position(fixed, 0 0 null 0);
+  z-index: 9;
+  background: #fff;
+
+  h1 {
+    font: 28px/61px 'almoni_tzar_aaaregular', Arial, sans-serif;
+    text-align: center;
+    border-bottom: 1px solid #E9EAED;
+  }
+
+  > a {
+    &.logo {
+      @include position(absolute, 10px 10px null null);
+    }
+
+    &.more_btn {
+      @include inline-block(31px, 31px, center, auto, auto);
+      @include position(absolute, 15px null null 13px);
+      @include border-radius(50%);
+      font: 18px/35px arial;
+      background: #3ab54a;
+      color: #fff;
+    }
+
+    > img {
+      width: 41px;
+      line-height: 60px;
+    }
+
+    &.logout_btn {
+      @include inline-block(31px, 31px, center, auto, auto);
+      @include position(absolute, 15px null null 55px);
+      @include border-radius(50%);
+      font: 18px/35px arial;
+      background: #474753;
+      color: #fff;
+    }
+  }
+}
+
+.days_strip {
+  /*@include inline-block(100%, auto, center, top, auto);*/
+  display: block;
+  height: 46px;
+  @include box-shadow(0 1px 3px rgba(0, 0, 0, 0.25));
+  background: #fff;
+  min-width: 320px;
+
+  > span {
+    @include inline-block(25%, auto, center, top, auto);
+    font: 20px/14px 'almoni_tzar_aaaregular', Arial, sans-serif;
+    float: right;
+    padding: 13px 0 10px;
+    color: #939393;
+    line-height: 20px;
+
+    &.selected {
+      color: $Blue;
+    }
+  }
+}
+
+
+// --------------------------------------------------------------------------------------------------------------------
+// Mobile Navigation Style
+// --------------------------------------------------------------------------------------------------------------------
+
+.mobile_navigation {
+  * {
+    @include transition(all, 0.2s, linear);
+  }
+
+  [type="checkbox"]:not(:checked) + label, [type="checkbox"]:checked + label {
+    @include inline-block(31px, 31px, center, auto, auto);
+    @include position(absolute, 10px null null 13px);
+    @include border-radius(50%);
+    font: 18px/35px arial;
+    background: #3ab54a;
+    color: #fff;
+    z-index: 10;
+    transition: all 0.3s ease;
+    writing-mode: lr-tb;
+
+    i {
+      transition: transform 0.5s;
+      display: block;
+      top: 7px;
+      position: absolute;
+      left: 7px;
+    }
+  }
+
+  input[type=checkbox]:checked ~ div:before {
+  }
+
+  input[type=checkbox]:checked ~ label i {
+    -webkit-transform: rotate(136deg);
+    -moz-transform: rotate(136deg);
+    -o-transform: rotate(136deg);
+    display: block;
+    top: 6px;
+    position: absolute;
+    transition: all 0.3s ease;
+    left: 6px;
+  }
+
+  input[type=checkbox] ~ div {
+  }
+
+  input[type=checkbox]:checked ~ div {
+    left: 0;
+  }
+
+  [type="checkbox"]:not(:checked) + label:before, [type="checkbox"]:checked + label:before {
+    display: none;
+  }
+
+  input[type=checkbox]:checked + label:after {
+    display: none;
+  }
+
+  [type="radio"]:not(:checked) + label, [type="radio"]:checked + label {
+    width: 76px;
+  }
+
+  .nav_block {
+    transition: all 0.3s ease;
+    width: 240px;
+    position: fixed;
+    left: -260px;
+    z-index: 9;
+    top: 0;
+    box-shadow: 0 0 10px rgb(46, 45, 59);
+    background: #2E2D3B;
+    height: 100%;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 62px 0 0 0;
+      border-top: 1px solid #3c3c3c;
+
+      @media screen and( max-height: 480px ) {
+        overflow-y: auto;
+        padding: 0 0 50px 0;
+        // height:~"calc(100vh - 118px)";
+      }
+
+      li {
+        border-bottom: 1px solid #3c3c3c;
+
+        &.active {
+          a {
+            background: #262434;
+            position: relative;
+            font: 21px/17px 'almoni_tzar_aaaregular', Arial, sans-serif;
+          }
+        }
+
+        &:hover {
+          background: #262434;
+        }
+
+        a {
+          color: #fff !important;
+          padding: 20px;
+          width: 100%;
+          display: inline-block;
+          text-decoration: none;
+          font: 21px/17px 'almoni_tzar_aaalight', Arial, sans-serif;
+        }
+      }
+    }
+  }
+}

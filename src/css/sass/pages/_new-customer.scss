@@ -1,0 +1,26 @@
+li.disabled-parent {
+  pointer-events: none;
+  background-color: none;
+  border: none;
+
+  .disabled-control {
+    pointer-events: all;
+  }
+
+  &:hover {
+    background-color: #EBEBE4 !important;
+    border: 2px inset #ABADB3;
+
+    .disabled-control {
+      background-color: #EBEBE4 !important;
+    }
+  }
+}
+/*.input-disabled {
+  background-color: #EBEBE4 !important;
+  border: 2px inset #ABADB3;
+
+  div {
+    background-color: #EBEBE4;
+  }
+}*/

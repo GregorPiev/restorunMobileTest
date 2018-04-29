@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="he">
+	<head>
+		<meta charset="UTF-8">
+		<title>Sass Projact</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="../css/stylesheets/style.css" type="text/css" />
+		<link rel="stylesheet" href="../css/fonts/icomoon/style.css" type="text/css" />
+		<link rel="stylesheet" href="../css/fonts/almoni/stylesheet.css" type="text/css" />
+	</head>
+	<body>
+		<!-- Header	 -->
+		<header>
+			<a href="../mockIndex.html" class="logo"><img src="../images/logo.png"></a>
+			<h1>יצירת הזמנה</h1>
+			<a  href="../mockIndex.html" class="back_btn"><i class="fa fa-angle-left"></i></a>
+		</header>
+		<!-- Container	 -->
+		<div class="container new_reservation">
+			<div class="info_strip">
+				<div>
+					<span class="title">בתאריך -<a href="">לחץ לשינוי</a></span>
+					<span>28/10/2015</span>
+				</div>
+				<div>
+					<span class="title">בשעה -<a href="">לחץ לשינוי</a></span>
+					<span>15:30</span>
+				</div>
+			</div>
+			<ul class="list_section">
+				<li>
+					<div class="label"><i class="icon-person"></i>שם</div>
+					<div>
+						<a href="search-customer.html">בחר לקוח</a>
+					</div>
+					<button class="add_client" onclick="location.href='new-customer.html'"></button>
+				</li>
+				<li>
+					<div class="label"><i class="icon-group"></i>מספר סועדים</div>
+					<div>
+						<span>2</span>
+						<div class="input_container">
+							<input type="number" placeholder="- לחץ לשינויי">
+						</div>
+					</div>
+				</li>
+				
+				<li>
+					<div class="label"><i class="icon-chef"></i>מטבח</div>
+					<div>
+						<span>45</span>
+						<!-- <a href="">- לחץ לשינויי</a> -->
+					</div>
+				</li>
+				<li>
+					<div class="label"><i class="icon-Shape155"></i>משך</div>
+					<div>
+						<span>01:00</span>
+						<div class="input_container">
+							<input type="number" placeholder="- לחץ לשינויי">
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="label"><i class="icon-smokers"></i>מעשנים</div>
+					<div class="multi_btn">
+						<input id="a" type="radio" name="a">
+					<label class="right" for="a">כן</label >
+					<input id="b" type="radio" name="a" checked="checked" >
+					<label for="b">לא משנה</label>
+					<input id="c" type="radio" name="a">
+					<label class="left" for="c">לא</label>
+				</div>
+			</li>
+			<li>
+				<div class="label"><i class="icon-area"></i>איזור</div>
+				<div class="select_container small">
+					<i class="fa fa-caret-down"></i>
+					<select name="" id="">
+						<option value="" disabled="disabled" selected="selected">בחר איזור</option>
+						<option value="">צפון</option>
+						<option value="">מרכז</option>
+						<option value="">דרום</option>
+					</select>
+				</div>
+			</li>
+		</ul>
+		<div class="remark_section" onclick="location.href='more-reservation-details.html'">
+			<div class="title">הערות <i class="icon-message"></i></div>
+			<a href="#">בחר לקוח או לחץ להזמנה ידנית</a>
+			<!-- <p>הלקוח מבקש לא ליד המזגן</p> -->
+			<button class="left_black_arrow"></button>
+		</div>
+		<!-- Modal -->
+		<div class="modal" id="modal-one" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-body">
+					<div class="title">בעיה ביצירת הזמנה</div>
+					<p>
+						לא ניתןלבצע את ההזמנה בשעה שנבחרה ניתן לבצע הזמנה לשעה  <br>
+						20:30 (<a href="">שינוי זמן</a>)
+					</p>
+				</div>
+				<div class="modal-footer">
+					<a href="#close" class="btn small error"><i class="icon-close"></i>ביטול הזמנה</a>
+					<a href="#close" class="btn small green">אישור</a>
+				</div>
+			</div>
+		</div>
+		<div class="footer">
+			<a href="#modal-one" class="btn full_width">עדכן</a>
+			<!-- <button href="#modal-one" class="btn full_width">עדכן</button> -->
+		</div>
+	</div>
+</body>
+</html>

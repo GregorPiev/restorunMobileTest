@@ -1,0 +1,74 @@
+@import "compass/css3";
+
+.select_container {
+    @include box-shadow( 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.07));
+    @include user-select(none);
+    border: 1px solid #C8C7CB;
+    background: #ffffff;
+    overflow: hidden;
+    margin: 0 0 13px 0;
+    position: relative;
+    &:focus,
+    &:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    .fa-caret-down {
+      position: absolute;
+      top: calc(50% - 11px);
+      left: 12px;
+      z-index: 1;
+      color: #2C2B39;
+      font-size: 24px;
+    }
+}
+
+select {
+    position: relative;
+    background: transparent;
+    background-image: none;
+    display: block;
+    width: 100%;
+    outline: none;
+    color: #96969d;
+    cursor: pointer;
+    z-index: 2;
+    border: none;
+    padding: 13px 0 10px 5px;
+    font: 20px/19px 'almoni_tzar_aaaregular', Arial, sans-serif;
+    // This is so hacky.. (for Firefox)
+    // Removes the default select arrow.
+    text-overflow: '';
+    text-indent: 5px;
+    // End of brutal hack
+    @include appearance(none);
+
+    &[multiple=multiple] {
+        height: auto;
+        border: 1px solid #cbcbcb;
+        border-radius: 3px;
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0.1), inset 0 0 10px rgba(0, 0, 0, 0.07);
+
+        @include single-transition(box-shadow, 0.2s);
+
+        &:hover {
+            border-color: #cccccc;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+    }
+
+    option[disabled] {
+        color: #727272;
+        text-shadow: none;
+        border: none;
+    }
+}
+
+select:-moz-focusring {
+    color: transparent;
+    text-shadow: 0 0 0 #96969d;
+}
+
+select::-ms-expand {
+    display: none;
+}
+

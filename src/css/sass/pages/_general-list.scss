@@ -1,0 +1,202 @@
+.list_section {
+    background: #fff;
+
+    // Single Row			
+    // ---------------------------------------------------------------------------------------------------------
+    li {
+        @include inline-block(100%, auto, right, top, auto);
+        border-bottom: 1px solid #dbdbdb;
+        background: #fff;
+        font-size: 20px;
+        position:relative;
+
+        // Single li with 2 cell (left toggle / arrow)		
+        // ---------------------------------------------------------------------------------------------------------
+        &.action_item {
+            > div {
+                width: 70px;
+                text-align: center;
+                &:first-child { 
+                    padding: 0 15px 0 0;
+                    width: calc(100% - 70px); 
+                    text-align: right; 
+                    &.select_container { width: calc(100% - 15px); }
+                }
+                &.label { padding: 0 50px 0 0; }
+                a { color: $Blue; }
+                //				span { color: #96969d; }
+            }
+            &.sub_item{
+                background: red;
+            }
+            &.disabled {
+                span, select {
+                    color: #96969d;
+                }
+                label, select {
+                    pointer-events: none;
+                }
+                label {
+                    opacity: .5;
+                }
+                .fa.fa-caret-down{
+                    visibility: hidden;
+                }
+            }
+        }
+        > div  {
+            @include inline-block(50%, auto, right, top, auto);
+            @include position(relative, null null null null);
+            @include ellipsis(calc(100% - 30px));
+            font: 24px/64px 'almoni_tzar_aaaregular', Arial, sans-serif;
+            float: right;
+            &:first-child {color: $Blue; margin-left: 0; }
+            &.multi_btn { width: 54%; margin: 11px 0 0 0; }
+
+            // Label Div
+            // ---------------------------------------------------------------------------------------------------------
+            &.label {
+                @include inline-block(45%, auto, right, top, auto);
+                padding: 0 50px 0 5px;
+                float: right;
+                &.club_member {
+                    color: red;
+                }
+            }
+            > .input_container {
+                display: inline-block;
+                width: 100%;
+                @include transition(all .4s);
+            }
+
+            // Label Icon
+            // ---------------------------------------------------------------------------------------------------------
+            i {
+                @include inline-block(50px, auto, center, top, auto);
+                @include position(absolute, null 0 null null);
+                top: calc(50% - 9px);
+                font-size: 17px;
+                &.icon-group {
+                    font-size: 24px;
+                    top: calc(50% - 12px);
+                    right: -2px;
+                }
+                &.icon-chef, &.icon-Shape155, .icon-smokers {
+                    font-size: 20px;
+                    top: calc(50% - 11px);
+                    right: -2px;
+                }
+                &.icon-smokers, &.icon-area {
+                    font-size: 19px;
+                    right: -4px;
+                }
+            }
+            // List item  label &  input			
+            // ---------------------------------------------------------------------------------------------------------
+            &.input_container {
+                width: 55%;
+                input {
+                    font: 24px/53px 'almoni_tzar_aaaregular', Arial, sans-serif;
+                    color: #96969d
+                }			
+            }
+
+        }
+
+        &.group_item {
+            > div {
+                overflow: visible;
+                [class^="icon-"], [class*=" icon-"] {
+                    position: absolute;
+                    top: -12px;
+                    background: #fff;
+                }
+            }
+            &:first-child {
+                i {
+                    display: none
+                }
+            }
+        }
+    }
+    // List with left button
+    // ---------------------------------------------------------------------------------------------------------
+    button {
+        @include inline-block(16%, auto, center, auto, 52px);
+        border-right: 1px solid #e1e2e5;
+        min-height: 54px;
+        margin: 5px 0;
+        &.add_client {
+            background: url(../../images/add_client.png) no-repeat center;
+            background-size: 32px;
+            &:active, &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+    .select_container {
+        // width: calc(100% - 15px) !important;
+        width: calc(100% - 15px) ;
+        max-width: inherit;
+        box-shadow: none;
+        border: 0;
+        margin: 0;
+        &.highlight {
+            select {color: $Blue;}
+        }
+        &.small {
+            width: calc(55% - 15px) ;
+
+        }
+        i {
+            left: -14px;
+            right: auto ;
+            color: #95959C;
+        }
+    }
+    select {
+        background: none;
+        font: 24px/39px 'almoni_tzar_aaaregular', Arial, sans-serif;
+
+    }
+}
+
+.remark_section {
+    font: 22px/22px 'almoni_tzar_aaaregular', Arial, sans-serif;
+    @include inline-block(100%, auto, right, top, auto);
+    @include position(relative, null null null null);
+    padding: 0 0 25px 0;
+    background: #E9EAED;
+    // float: right;
+    .title {
+        @include inline-block(60%,61px, right, top, auto);
+        padding: 24px 51px 0 0;
+        font-size: 23px;
+        position: relative;
+        display: block;
+        i {
+            @include inline-block(50px, auto, center, top, auto);
+            @include position(absolute, null -2px null null);
+            top: calc(50% - 10px);
+            font-size: 25px;
+            color: #a7a9ae;
+        }
+    }
+    p, a, textarea {
+        font: 22px/22px 'almoni_tzar_aaalight', Arial, sans-serif;
+        background: none;
+        border: 0;
+        @include inline-block(100%, auto, auto, top, auto);
+        @include ellipsis(calc(100% - 30px));
+        padding: 0 50px 0 0;
+    }
+    textarea {
+        padding: 0;
+        text-align: right;
+        max-width: calc(100% - 67px);
+        overflow: visible;
+        margin: 0 50px 0 0;
+        white-space: normal;
+        resize: vertical;
+    }
+}

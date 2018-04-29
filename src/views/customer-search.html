@@ -1,0 +1,29 @@
+<header>
+    <a ui-sref="main.reservations-list" class="logo"><img src="../images/logo.png"></a>
+    <h1>חיפוש לקוח</h1>
+    <a ng-click="back()" class="back_btn"><i class="fa fa-angle-left"></i></a>
+</header>
+<!-- Container  -->
+<div class="container search_customer" infinite-scroll="getCustomers()" infinite-scroll-disabled="fetch || stopSearch">
+    <div class="search_strip">
+        <input type="{{inputMode}}" ng-model="searchParams.searchParam" ng-model-options="{ debounce: { 'default': 500, 'blur': 0 } }" placeholder="חיפוש לפי {{inputMode === 'text' ? 'שם' : 'מספר'}}">
+        <button class="btn search_toggle" ng-click="toggleSearchMode()">{{inputMode === 'text' ? 'אבג' : '123'}}</button>
+    </div>
+    <ul class="list_section">
+        <li class="add_client_strip">
+            <button class="add_client_strip" ui-sref="main.reservation.customer-new">
+                <span>הוספת לקוח חדש</span>
+            </button>
+        </li>
+        <li ng-repeat="customer in customers">
+            <div ng-click="addCustomer(customer)">
+                <div class="name" ng-bind-html="isLookingForNumber ? customer.phoneNumber : customer.fullName | SearchWrapFilter:searchParams.searchParam"></div>
+                <div class="number" ng-bind-html="!isLookingForNumber ? customer.phoneNumber : customer.fullName | SearchWrapFilter:searchParams.searchParam"></div>
+            </div>
+            <button class="add_customer" ng-click="addCustomer(customer)">לחץ להוספה</button>
+            <button class="left_line_arrow" ui-sref="main.reservation.customer-details({CustomerId: customer.customerID})"></button>
+        </li>
+    </ul>
+    <br /> <h1 ng-bind="searchResultsString">
+    </h1>
+</div>

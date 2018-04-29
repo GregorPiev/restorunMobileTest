@@ -1,0 +1,60 @@
+<!-- Header  -->
+<header>
+    <a ui-sref="main.reservations-list" class="logo"><img src="../images/logo.png"></a>
+    <h1>פרטי הזמנה נוספים</h1>
+    <a ng-click="back()" class="back_btn"><i class="fa fa-angle-left"></i></a>
+</header>
+<!-- Container   -->
+<div class="container reservation_details">
+    <div class="remark_section">
+        <div class="title">הערות <i class="icon-message"></i></div>
+        <textarea ng-disabled="!isNewReservation && !isEditing" ng-model="reservation.comment" cols="30" rows="2" placeholder="הזן הערה ללקוח"></textarea>
+    </div>
+    <ul class="list_section">
+        <li class="action_item" ng-class="{disabled: !isNewReservation && !isEditing }">
+            <div class="select_container highlight">
+                <i class="fa fa-caret-down"></i>
+                <select ng-model="temp.selectedComment" ng-options="c as c.text for c in commentsBank">
+                    <option value="" selected="selected">בנק הערות</option>
+                </select>
+            </div>
+        </li>
+        <li class="action_item disabled-parent" ng-class="{disabled: !isNewReservation && !isEditing }">
+            <div class="disabled-control">
+                <span>מוגבל בזמן?</span>
+            </div>
+            <div class="disabled-control">
+                <input disabled id="toggle1" class="switch_toggle" ng-model="reservation.isTimeLimited" type="checkbox">
+                <label for="toggle1"></label>
+            </div>
+        </li>
+        <li class="action_item disabled-parent" ng-class="{disabled: !isNewReservation && !isEditing }">
+            <div class="disabled-control">
+                <span>אסור להחליף שולחנות?</span>
+            </div>
+            <div class="disabled-control">
+                <input disabled id="toggle" class="switch_toggle" ng-model="reservation.isRestrictedToChangeTables" type="checkbox">
+                <label for="toggle"></label>
+            </div>
+        </li>
+        <li class="action_item disabled-parent" ng-class="{disabled: !isNewReservation && !isEditing }">
+            <div class="select_container highlight disabled-control">
+                <i class="fa fa-caret-down"></i>
+                <select disabled ng-model="reservation.reservationOccasion" ng-options="o as o.name for o in occasions | orderBy:'name'">
+                    <option value="" selected="selected">אירוע</option>
+                </select>
+            </div>
+        </li>
+        <li class="action_item disabled-parent" ng-class="{disabled: !isNewReservation && !isEditing }">
+            <div class="select_container highlight disabled-control">
+                <i class="fa fa-caret-down"></i>
+                <select disabled ng-model="reservation.reservationReferral" ng-options="r as r.name for r in referrers | orderBy:'name'">
+                    <option value="" selected="selected">גורם מפנה</option>
+                </select>
+            </div>
+        </li>  
+    </ul>
+</div>
+<div class="footer" ng-show="isNewReservation || isEditing">
+    <a ng-click="back()" class="btn full_width">חזור</a>
+</div>

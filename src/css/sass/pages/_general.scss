@@ -1,0 +1,112 @@
+html {
+  overflow: auto;
+}
+
+body {
+  direction: rtl;
+  font: 14px/18px 'almoni_tzar_aaalight', Arial, sans-serif;
+  background: #E9EAED;
+  min-width: 320px;
+  // overflow: auto;
+  height: 100%;
+  -webkit-user-select: none; /* Chrome all / Safari all */
+  -moz-user-select: none; /* Firefox all */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+
+  button, input, textarea {
+    background: none;
+    border: 0;
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    @include placeholder {
+      opacity: 1;
+    }
+  }
+
+  a, input, textarea {
+    color: #96969d;
+  }
+
+  * {
+    @include box-sizing(border-box);
+  }
+}
+
+header {
+  z-index: 100000;
+}
+
+.container {
+  margin: 60px 0 85px;
+  position: relative;
+}
+
+.container-list {
+  @include margin-dinamy(60px,0,85px,0);
+  position: relative;
+  z-index: 0;
+
+  #wrapper-reservation {
+    position: relative;
+    top: 0px;
+    right: 0px;
+  }
+
+  #arrow-custom {
+    position: fixed;
+    right: 87%;
+    top: 92%;
+    display: block;
+    cursor: pointer;
+    display: none;
+  }
+}
+
+.money_sign {
+  margin: 0 4px 0 0;
+  font-size: 15px;
+}
+
+input {
+  border: 0;
+  padding: 5px 10px;
+  font: 24px/26px 'almoni_tzar_aaaregular', Arial, sans-serif;
+  @include ellipsis(100%);
+}
+
+input[type=date],
+input[type=time] {
+  opacity: 0;
+  position: absolute;
+}
+
+.footer {
+  @include box-shadow(0 2px 16px rgba(0, 0, 0, 0.45));
+  @include position(relative, null null 0 null );
+  padding: 18px;
+  width: 100%;
+  background: #fff;
+  text-align: center;
+  min-width: 320px;
+  z-index: 9;
+}
+
+.almostInvisible {
+  width: 1px;
+  height: 1px;
+}
+
+.ngInfiniteScrollContainer {
+  //!IMPORTANT!
+  //Endless scroll fix, if child container height less than parent's - on the empty list of reservations it will enter endless loop
+  //(can be seen in Batarang AngularJS tab) - it highly affects performance and should not be changed unless you know what you do and check it.
+  //!IMPORTANT!
+  min-height: 100%;
+  position: absolute;
+  height: 50vh;
+}

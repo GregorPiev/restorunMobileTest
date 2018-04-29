@@ -1,0 +1,21 @@
+<div class="login-wrapper">
+    <div class="form-logo">
+        <img src="/images/logo.png">
+    </div>
+    <span>כניסה למערכת</span>
+    <form name="loginFrm" autocomplete="off" data-ng-submit="connect()">
+        <label for="user">משתמש:</label>
+        <input type="text" ng-model="login.login" ng-required="true" name="user">
+        <div ng-messages="loginFrm.user.$error" ng-show="loginFrm.user.$touched || errors.visible">
+            <div ng-message="required">שדה חובה</div>
+        </div>
+        <label for="password">סיסמא:</label>
+        <input type="password" ng-model="login.password" ng-required="true" name="password" autocomplete="off">
+        <div ng-messages="loginFrm.password.$error"  ng-show="loginFrm.password.$touched || errors.visible">
+            <div ng-message="required">שדה חובה</div>
+        </div>
+        <div class="button" ng-click="displayErrors()">
+            <input type="submit" class="btn" value="כניסה" />
+        </div>
+    </form>
+</div>

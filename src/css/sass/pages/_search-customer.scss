@@ -1,0 +1,103 @@
+
+.search_strip {
+	@include inline-block(100%, auto, auto, auto, auto);
+	padding: 18px 14px 14px;
+	display: block;
+	background: #E9EAED;
+	input {
+		font: 32px/48px 'almoni_tzar_aaalight', Arial, sans-serif;
+		@include ellipsis(calc(100% - 63px));
+		display: inline-block;
+		padding: 0 60px 0 0;
+		text-align: center;
+		color: #222;
+		width: 99%;
+	}
+	.search_toggle { 
+		float: left; width: 60px;
+		&:hover, &:focus { background: #0369D7;
+        opacity: 0.8; }
+	}
+}
+.search_customer {
+	.list_section {
+        & ~ h1 {
+            text-align: center;
+        }
+		li {
+			&.add_client_strip {
+				border-bottom: 2px solid #dbdbdb;
+				button {
+					background: url(../../images/add_client.png) no-repeat calc(100% - 12px) 14px;
+					background-size: 32px;
+					width: 100%;
+					text-align: right;
+					padding: 6px 57px 2px 0;
+					line-height: 49px;
+					min-height: inherit;
+					margin: 0;
+					&:hover, &:focus { background-color: rgba(58, 181, 74, 0.28); }
+					span {
+						font: 24px/34px 'almoni_tzar_aaaregular', Arial, sans-serif;
+						color: $Green;
+					}
+				}
+			}
+
+			> div {
+				width: calc(100% - 118px);
+			    font: 29px/28px 'almoni_tzar_aaaregular', Arial, sans-serif;
+			    padding: 13px 16px 0 0;
+			    &:hover, &:active, &:focus {
+				    .name, .number, b {
+				    	color: $Blue;
+				    }	
+			    }
+			    .number { font: 19px/25px 'almoni_tzar_aaalight', Arial, sans-serif; }
+			    .name, .number {
+			    	@include ellipsis(100%);
+			    	color: #727272;
+			    	display: block;
+			    }
+			}
+			b {
+				font-weight: 400;
+				color: #222;
+			}
+			.add_customer {
+				font: 19px/21px 'almoni_tzar_aaalight', Arial, sans-serif;
+				margin: 12px 6px 0 0;
+				border: 0;
+				width: 65px;
+				padding: 0;
+			    &:hover, &:active, &:focus {
+				    	color: $Green;
+				    	text-decoration: underline;
+
+			    }
+			}
+			.left_line_arrow {
+				position: relative;
+				float: left;
+				width: 45px;
+				border: 0;
+				left: 0;
+				margin: 12px 0;
+				min-height: inherit;
+				height: 51px;
+				&:before { 
+					left: 18px; 
+					top: calc(50% - 8px);
+					border-bottom: 8px solid transparent;
+					border-top: 8px solid transparent;
+					border-right: 8px solid #2f2f2f;
+				}
+				&:after {
+					left: auto;
+					right: 0;
+				}
+			}
+		}
+
+	}
+}

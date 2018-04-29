@@ -1,0 +1,12 @@
+
+// # ------------------- SNIP -------------------
+// @include ellipsis(72px);
+// # ------------------- SNAP -------------------
+
+@mixin ellipsis ($max-width){
+  display: inline-block;
+  max-width: $max-width;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,140 @@
+<header>
+  <a ui-sref="main.reservations-list" ng-click="goHome()" class="logo"><img src="../images/logo.png"></a>
+  <a class="more_btn" ui-sref="main.reservation.new"><i class="icon-pluse"></i></a>
+  <a class="logout_btn" ng-click="logout()" title="התנתקות" version-check><i class="glyphicon glyphicon-log-out"></i></a>
+  <!--<logout-button></logout-button>-->
+  <h1>ניהול הזמנות</h1>
+  <div class="actions_strip">
+    <div class="date">
+      <i class="icon-calendar"></i>
+      <span ng-click="toggleDatepicker($event)" style="display:inline-block;">{{ getDateForDisplay(searchParams.date) }}</span>
+      <input type="date" class="almostInvisible" ng-model="searchParams.date" ng-change="dateChangeHandler()">
+    </div>
+    <ul class="filters">
+      <!--             <li>
+          <div class="tooltip graph_tooltip">
+              <input id="graph" ng-model="showStates.graph" ng-click="toggle('graph', 'showStates', true)" type="checkbox">
+              <label for="graph"><i class="icon-graph"></i></label>
+              <div class="drop">
+                  <div>
+                      <button ng-click="close('graph')" class="close_btn"><i class="icon-close"></i></button>
+                      <div class="content">
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </li> -->
+      <li>
+        <div class="tooltip time_line" ng-click="renewTimeTimeLine()" ng-show="testVersion()">
+          <span class="timeline-wotch" ng-bind="curentTime"></span>
+          <span class="glyphicon glyphicon-time timeline-clock"></span>
+          <br />
+          <span class="timeline-status">
+            <span id="tileline-status-order-quintity" ng-bind="currentTotalReservations"></span>
+            <i class="fa fa-list-alt"></i>
+            &nbsp;&nbsp;
+            <span id="tileline-status-man-quintity" ng-bind="currentSumOfPartySize"></span>
+            <i class="icon-group"></i>
+            &nbsp;&nbsp;
+            <span id="tileline-status-shift" ng-bind="currentTimelineName"></span>
+          </span>
+          <br />
+        </div>
+        <div id="timeline-riler" ng-show="StatusRulerView">
+          <ul>
+            <li ng-repeat="(index,cellRuller) in StatusRuler">
+              <span class="timeline-riler-shift">
+                {{cellRuller.timelineName}}
+              </span>
+              <br />
+              <span id="tileline-status-order-quintity" style="color:blue" ng-bind="shiftTotalReservations[index]"></span>
+              <i class="fa fa-list-alt" style="color:blue"></i>
+              &nbsp;&nbsp;
+              <span id="tileline-status-man-quintity" style="color:blue" ng-bind="shiftSumOfPartySize[index]"></span>
+              <i class="icon-group" style="color:blue"></i>
+              <ul class="timeline-cellblock">
+                <li ng-repeat="cellRullerData in StatusRuler[index].details">
+                  <span class="timeline-status" ng-click="rollToChoosedTime(cellRullerData.timelineTime,cellRullerData.countOfReservations,cellRullerData.sumOfPartySize,cellRuller.timelineName);">
+                    <span ng-class="(cellRullerData.countOfReservations!=0)?['icon-blue']:['icon-white']" ng-bind="cellRullerData.cellTime"></span> <br />
+                    <span ng-class="(cellRullerData.countOfReservations!=0)?['icon-blue']:['icon-white']" ng-bind="cellRullerData.countOfReservations"></span>
+                    <i class="fa fa-list-alt" ng-style="{'color': (cellRullerData.countOfReservations!=0)?['blue']:['black']}"></i>
+                    &nbsp;&nbsp;
+                    <span ng-class="(cellRullerData.countOfReservations!=0)?['icon-blue']:['icon-white']" ng-bind="cellRullerData.sumOfPartySize"></span>
+                    <i class="icon-group" ng-style="{'color': (cellRullerData.countOfReservations!=0)?['blue']:['black']}"></i>
+                  </span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="tooltip search_tooltip">
+          <input id="search" ng-model="showStates.search" ng-click="toggle('search', 'showStates', true,$event)" type="checkbox">
+          <label for="search"><i class="icon-search"></i></label>
+          <div class="drop">
+            <div>
+              <span class="triangle"></span>
+              <input type="text" ng-model="searchParams.searchParam" ng-model-options="{ debounce: { 'default': 500, 'blur': 0 } }" placeholder="חפש...">
+              <button ng-click="close('search')" class="close_btn"><i class="icon-close"></i></button>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="tooltip status_tooltip">
+          <input id="status" ng-model="showStates.status" ng-click="toggle('status', 'showStates', true,$event)" type="checkbox">
+          <label for="status"><i class="icon-status"></i></label>
+          <div class="drop">
+            <div>
+              <div class="drop_title">סינון הזמנות</div>
+              <button ng-click="close('status')" class="close_btn"><i class="icon-close"></i></button>
+              <div class="content">
+                <div class="select_container">
+                  <i class="fa fa-caret-down"></i>
+                  <select ng-model="searchParams.reservationStatus" ng-options="rs.id as rs.description for rs in reservationStatuses | orderBy:'description'">
+                    <option value="" selected="selected">בחירת סטטוס</option>
+                  </select>
+                </div>
+                <div class="select_container">
+                  <i class="fa fa-caret-down"></i>
+                  <select ng-model="searchParams.reservationLogicalArea" ng-options="rla.id as rla.name for rla in logicalAreas | orderBy:'name'">
+                    <option value="" selected="selected">בחירת אזור מסעדה</option>
+                  </select>
+                </div>
+                <!-- <button class="btn full_width">סינון</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <!--<div class="days_strip">
+    <span ng-repeat="timePeriod in timePeriods" ng-style="{ 'width': getWidth } " ng-bind="timePeriod.name" ng-click="setTimePeriod(timePeriod.id)" ng-class="{selected: searchParams.dayPeriod === timePeriod.id}"></span>
+  </div>-->
+</header>
+<div class="container-list">
+  <div class="invitation_list ngInfiniteScrollContainer" infinite-scroll="getReservations()" infinite-scroll-disabled="fetch || stopSearch">
+    <ul id="wrapper-reservation" ng-class="{filter_on: showStates.status}">
+      <li id="{{reservation.id}}" class="reservationCollection"
+          data-timestart="{{reservation.reservationDateTime | MomentFilter:'Y M D HH:mm' }}"
+          data-duration="{{reservation.reservationDuration | MomentFilter:'HH:mm' }}"
+          data-status="{{isReservationCancelPermit(reservation)}}"
+          data-size="{{reservation.reservationPartySize}}"
+          ng-repeat="reservation in reservations">
+        <a href="tel:{{reservation.customerPhoneNumber}}" class="call_btn"><i class="icon-phone"></i></a>
+        <a ng-click="confirmCancelReservation(reservation)" class="cancel_btn" ng-class="{ 'cancellable' : isReservationCancellable(reservation), 'disabled' : !isReservationCancellable(reservation) }" version-check><i class="icon-close"></i></a>
+        <div ui-sref="main.reservation.details({ReservationId: reservation.id, reservationStatus: reservation.status.id})">
+          <div class="time">{{reservation.reservationDateTime | MomentFilter:'HH:mm' }}</div>
+          <div class="name">{{reservation.customerName}}</div>
+          <div class="status">{{reservation.status.description}}</div>
+        </div>
+      </li>
+    </ul>
+    <div id="arrow-custom">
+      <i class="fa fa-arrow-circle-o-up fa-3x" ng-click="restoreTimeTimeLine()"></i>
+    </div>
+    <h1 ng-bind="searchResultsString"></h1>
+  </div>
+</div>

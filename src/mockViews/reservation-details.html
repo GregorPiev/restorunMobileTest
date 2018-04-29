@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sass Projact</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../css/stylesheets/style.css" type="text/css" />
+    <link rel="stylesheet" href="../css/fonts/icomoon/style.css" type="text/css" />
+    <link rel="stylesheet" href="../css/fonts/almoni/stylesheet.css" type="text/css" />
+</head>
+
+<body>
+    <header>
+        <a href="../mockIndex.html" class="logo"><img src="../images/logo.png"></a>
+        <h1>הזמנה 4367</h1>
+        <a href="../mockIndex.html" class="back_btn"><i class="fa fa-angle-left"></i></a>
+    </header>
+    <!-- Container	 -->
+    <div class="container reservation_details">
+        <div class="info_strip">
+            <div>
+                <span class="title">בתאריך</span>
+                <span>28/10/2015</span>
+            </div>
+            <div>
+                <span class="title">בשעה</span>
+                <span>15:30</span>
+            </div>
+        </div>
+        <ul class="list_section">
+            <li class="name">
+                <div class="label"><i class="icon-person"></i>שם</div>
+                <div>
+                    <!-- <a href="">בחר לקוח</a> -->
+                    <span>עידן אזולאי</span>
+                </div>
+                <!-- <button class="add_client"></button> -->
+                <button class="left_line_arrow" onclick="location.href='customer-details.html'"></button>
+                <a class="call_btn" href="tel:555-555-5555"><i class="icon-phone"></i></a>
+            </li>
+            <li>
+                <div class="label"><i class="icon-group"></i>מספר סועדים</div>
+                <div>
+                    <span>2</span>
+                    <!-- <a href="">- לחץ לשינויי</a> -->
+                </div>
+            </li>
+            <li>
+                <div class="label"><i class="icon-chef"></i>מטבח</div>
+                <div>
+                    <span>45</span>
+                    <!-- <a href="">- לחץ לשינויי</a> -->
+                </div>
+            </li>
+            <li>
+                <div class="label"><i class="icon-Shape155"></i>משך</div>
+                <div>
+                    <span>01:00</span>
+                    <!-- <a href="">- לחץ לשינויי</a> -->
+                </div>
+            </li>
+            <li>
+                <div class="label"><i class="icon-smokers"></i>מעשנים</div>
+                <!-- <div class="multi_btn">
+							<input id="a" type="radio" name="a">
+						<label class="right" for="a">כן</label >
+						<input id="b" type="radio" name="a" checked="checked" >
+						<label for="b">לא משנה</label>
+						<input id="c" type="radio" name="a">
+						<label class="left" for="c">לא</label>
+				</div> -->
+                <div>
+                    <span>כן</span>
+                </div>
+            </li>
+            <li>
+                <div class="label"><i class="icon-area"></i>איזור</div>
+                <div>
+                    <span>חצר אחורית</span>
+                    <!-- <a href="">בחר איזור</a> -->
+                </div>
+            </li>
+        </ul>
+        <div class="remark_section" onclick="location.href='more-reservation-details.html'">
+            <div class="title">הערות <i class="icon-message"></i></div>
+            <p>הלקוח מבקש לא ליד המזגן</p>
+            <button class="left_black_arrow"></button>
+        </div>
+    </div>
+</body>
+
+</html>
